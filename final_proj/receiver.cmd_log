@@ -1,0 +1,2 @@
+xst -ise "E:/final_proj/final_proj.ise" -intstyle ise -ifn "E:/final_proj/receiver.xst" -ofn "E:/final_proj/receiver.syr"
+xst -ise "E:/final_proj/final_proj.ise" -intstyle ise -ifn "E:/final_proj/receiver.xst" -ofn "E:/final_proj/receiver.syr"

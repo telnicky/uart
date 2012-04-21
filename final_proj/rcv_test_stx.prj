@@ -1,0 +1,3 @@
+verilog isim_temp "receiver.v"
+verilog isim_temp "rcv_test.v"
+verilog isim_temp "C:/Xilinx/10.1/ISE/verilog/src/glbl.v"

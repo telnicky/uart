@@ -1,0 +1,3 @@
+verilog work "receiver.v"
+verilog work "rcv_test.v"
+verilog work "C:/Xilinx/10.1/ISE/verilog/src/glbl.v"

@@ -1,0 +1,43 @@
+Command line:
+   ./rcv_test_isim_beh.exe
+     -intstyle  ise
+     -ipchost  localhost
+     -ipcport  1791
+
+Thu Apr 19 16:48:21 2012
+
+Total Line Count : 85
+
+ Elaboration Time: 0.015625 sec
+
+ Current Memory Usage: 247.288 Meg
+
+ Total Signals          : 16
+ Total Nets             : 21
+ Total Signal Drivers   : 9
+ Total Blocks           : 3
+ Total Primitive Blocks : 2
+ Total Processes        : 17
+ Total Traceable Variables  : 41
+ Total Scalar Nets and Variables : 554
+ntrace select -o on -n /rcv_test/req 
+ntrace select -o on -n /rcv_test/data 
+ntrace select -o on -n /rcv_test/clk 
+ntrace select -o on -n /rcv_test/clr 
+ntrace select -o on -n /rcv_test/rcv 
+ntrace select -o on -n /rcv_test/ack 
+ntrace select -o on -n /rcv_test/uut/state 
+ntrace select -o on -n /rcv_test/uut/count 
+ntrace select -o on -n /rcv_test/uut/divide 
+ntrace select -o on -n /rcv_test/uut/enable 
+ntrace start 
+isimrun 1000 ns 
+Simulator is doing circuit initialization process.
+Finished circuit initialization process.
+
+ Total Simulation Time: 0.125 sec
+
+ Current Memory Usage: 257.839 Meg
+
+Thu Apr 19 16:52:59 2012
+
