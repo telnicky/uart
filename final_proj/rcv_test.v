@@ -33,7 +33,10 @@ module rcv_test;
 	// Outputs
 	wire req;
 	wire [7:0] data;
-
+	
+	integer i;
+	reg [6:0] rcv_test;
+	
 	// Instantiate the Unit Under Test (UUT)
 	receiver uut (
 		.clk(clk), 
@@ -45,6 +48,7 @@ module rcv_test;
 	);
 
 	initial begin
+		$display("Start Test");
 		// Initialize Inputs
 		clk = 0;
 		clr = 0;
@@ -59,18 +63,19 @@ module rcv_test;
         
 		rcv = 0;
 		
-		#36; rcv = 0;
-		#36; rcv = 1;
-		#36; rcv = 0;
-		#36; rcv = 0;
-		#36; rcv = 1;
-		#36; rcv = 0;
-		#36; rcv = 0;
-		#36; rcv = 0;
-		#36; rcv = 1;
+		#18; rcv = 1;
+		#18; rcv = 1;
+		#18; rcv = 1;
+		#18; rcv = 1;
+		#18; rcv = 1;
+		#18; rcv = 1;
+		#18; rcv = 1;
+		#18; rcv = 1;
+		#18; rcv = 1;
 		
 		#100;
-		
+
+		$display("End Test");
 	end
  
 	always #1 clk = ~clk;

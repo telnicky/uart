@@ -15,13 +15,13 @@ parameter idle = 0, rcv_start = 1, rcv_bit7 = 2,
 	// divider
 	always @(posedge clk)
 		begin
-//			if(divide == 579)
+//			if(divide == 579) begin // gives ~9 ticks per bit
 			if(divide == 1) begin
 
 					divide = 0;
 					enable = 1;
 					count = count >= 8 ? 0 : count + 1;
-				end
+			end
 
 			else begin
 
@@ -33,7 +33,7 @@ parameter idle = 0, rcv_start = 1, rcv_bit7 = 2,
 				count = 0;
 
 			if(!clr)
-				{enable, divide} = 0;
+				{enable, divide, count} = 0;
 		end
 
 	// present state logic
@@ -50,7 +50,7 @@ parameter idle = 0, rcv_start = 1, rcv_bit7 = 2,
 		if(!clr)
 			data = 0;
 
-		if(count == 4)
+		else if(count == 4)
 			case(state)
 				rcv_bit7: data[7] = rcv;
 				rcv_bit6: data[6] = rcv;
