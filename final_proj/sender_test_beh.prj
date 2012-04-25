@@ -1,3 +1,0 @@
-verilog work "sender.v"
-verilog work "sender_test.v"
-verilog work "C:/Xilinx/10.1/ISE/verilog/src/glbl.v"

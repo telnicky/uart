@@ -1,3 +1,0 @@
-verilog isim_temp "sender.v"
-verilog isim_temp "sender_test.v"
-verilog isim_temp "C:/Xilinx/10.1/ISE/verilog/src/glbl.v"
