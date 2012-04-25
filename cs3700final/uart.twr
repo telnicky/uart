@@ -1,0 +1,78 @@
+--------------------------------------------------------------------------------
+Release 10.1.03 Trace  (nt)
+Copyright (c) 1995-2008 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx\10.1\ISE\bin\nt\unwrapped\trce.exe -ise
+E:/cs3700/cs3700final/cs3700final.ise -intstyle ise -v 3 -s 6 -xml uart
+uart.ncd -o uart.twr uart.pcf -ucf uart.ucf
+
+Design file:              uart.ncd
+Physical constraint file: uart.pcf
+Device,package,speed:     xc2s50,tq144,-6 (PRODUCTION 1.27 2008-01-09)
+Report level:             verbose report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Setup/Hold to clock clock
+------------+------------+------------+------------------+--------+
+            |  Setup to  |  Hold to   |                  | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
+------------+------------+------------+------------------+--------+
+clear       |    3.450(R)|   -0.346(R)|clock_BUFGP       |   0.000|
+receive     |    4.184(R)|   -0.822(R)|clock_BUFGP       |   0.000|
+------------+------------+------------+------------------+--------+
+
+Clock clock to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+data<0>     |    9.116(R)|clock_BUFGP       |   0.000|
+data<1>     |    9.612(R)|clock_BUFGP       |   0.000|
+data<2>     |    9.867(R)|clock_BUFGP       |   0.000|
+data<3>     |    9.906(R)|clock_BUFGP       |   0.000|
+data<4>     |    9.317(R)|clock_BUFGP       |   0.000|
+data<5>     |    8.932(R)|clock_BUFGP       |   0.000|
+data<6>     |    9.573(R)|clock_BUFGP       |   0.000|
+data<7>     |   10.014(R)|clock_BUFGP       |   0.000|
+transmit    |    8.591(R)|clock_BUFGP       |   0.000|
+------------+------------+------------------+--------+
+
+Clock to Setup on destination clock clock
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clock          |    7.585|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Analysis completed Tue Apr 24 14:26:04 2012 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 60 MB
+
+
+

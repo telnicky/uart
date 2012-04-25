@@ -1,0 +1,5 @@
+# begin LFP file E:\cs3700\cs3700final\uart.lfp
+designfile uart.v
+parttype xc2s50-6-tq144
+bus_delimiter 0;
+set_busdelim_onsave 1;

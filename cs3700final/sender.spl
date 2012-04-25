@@ -1,0 +1,12 @@
+[Inputs]
+clk
+clr
+req
+=data[7:0]=
+[Outputs]
+xmt
+ack
+[BiDir]
+[ATTRIBUTES]
+VeriModel sender
+
