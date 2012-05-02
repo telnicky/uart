@@ -14,6 +14,7 @@ module sender(input clk, clr, req, input [7:0] data, output reg xmt, output reg 
 	reg [3:0] count;
 	reg enable;
 	reg [4:0] state, next_state;
+	reg [7:0] save;
 
 	parameter idle = 0, xmt_start = 1, xmt_bit7 = 2,
 		xmt_bit6 = 3, xmt_bit5 = 4, xmt_bit4 = 5,
@@ -24,7 +25,7 @@ module sender(input clk, clr, req, input [7:0] data, output reg xmt, output reg 
 	// clock divider
 	always @(posedge clk) begin
 	
-			if(divide == /*579*/ 1) begin // gives ~9 ticks per bit
+			if(divide == 579) begin // gives ~9 ticks per bit
 
 				divide = 0;
 				enable = 1;
@@ -58,14 +59,14 @@ module sender(input clk, clr, req, input [7:0] data, output reg xmt, output reg 
 		xmt = 1;
 
 		case(state)
-			xmt_bit7: xmt = data[7];
-			xmt_bit6: xmt = data[6];
-			xmt_bit5: xmt = data[5];
-			xmt_bit4: xmt = data[4];
-			xmt_bit3: xmt = data[3];
-			xmt_bit2: xmt = data[2];
-			xmt_bit1: xmt = data[1];
-			xmt_bitp: xmt = data[0];
+			xmt_bit7: xmt = save[7];
+			xmt_bit6: xmt = save[6];
+			xmt_bit5: xmt = save[5];
+			xmt_bit4: xmt = save[4];
+			xmt_bit3: xmt = save[3];
+			xmt_bit2: xmt = save[2];
+			xmt_bit1: xmt = save[1];
+			xmt_bitp: xmt = save[0];
 			xmt_start: xmt = 0;
 			xmt_bits1: xmt = 1;
 			xmt_bits2: xmt = 1;
@@ -73,7 +74,7 @@ module sender(input clk, clr, req, input [7:0] data, output reg xmt, output reg 
 		endcase
 
 		case(state)
-			hs1: ack = 1;
+			hs1: begin save = data; ack = 1; end
 			hs2: ack = 0;
 			default: ack = 0;
 		endcase
@@ -99,7 +100,7 @@ module sender(input clk, clr, req, input [7:0] data, output reg xmt, output reg 
 			xmt_bits1: next_state = count == 8 ? xmt_bits2 : state;
 			xmt_bits2: next_state = count == 8 ? idle : state;
 
-			default:   next_state = idle;
+			default: next_state = idle;
 		endcase
 
 endmodule

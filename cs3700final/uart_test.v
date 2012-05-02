@@ -140,6 +140,32 @@ module uart_uart_sch_tb();
 		if(transmit != 0) $display("error: case 4 bit 8"); #36;
 
 		#18; #36;
+		
+		receive = 0;
+
+		#36; receive = 0;
+		#36; receive = 0;
+		#36; receive = 0;
+		#36; receive = 0;
+		#36; receive = 0;
+		#36; receive = 0;
+		#36; receive = 0;
+		#36; receive = 0;
+
+		#36; receive = 1;
+		
+		#36; receive = 0;
+
+		#36; receive = 1;
+		#36; receive = 1;
+		#36; receive = 1;
+		#36; receive = 1;
+		#36; receive = 1;
+		#36; receive = 1;
+		#36; receive = 1;
+		#36; receive = 1;
+
+		#36; receive = 1;
 
 		$display("testing complete");
 	end

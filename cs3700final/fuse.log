@@ -22,7 +22,7 @@ e:/cs3700/cs3700final/isim/work/glbl.sdb
 Starting static elaboration
 Completed static elaboration
 Fuse Memory Usage: 54392 Kb
-Fuse CPU Usage: 77 ms
+Fuse CPU Usage: 93 ms
 Compiling module glbl
 Compiling module receiver
 Compiling module sender
@@ -31,4 +31,4 @@ Compiling module uart_uart_sch_tb
 Compiled 5 Verilog Units
 Built simulation executable uart_uart_sch_tb_isim_beh.exe
 Fuse Memory Usage: 55676 Kb
-Fuse CPU Usage: 93 ms
+Fuse CPU Usage: 124 ms

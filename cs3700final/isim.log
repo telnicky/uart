@@ -2,15 +2,15 @@ Command line:
    ./uart_uart_sch_tb_isim_beh.exe
      -intstyle  ise
      -ipchost  localhost
-     -ipcport  3215
+     -ipcport  4602
 
-Tue Apr 24 17:06:13 2012
+Wed Apr 25 12:28:54 2012
 
-Total Line Count : 210
+Total Line Count : 230
 
- Elaboration Time: 0 sec
+ Elaboration Time: 0.03125 sec
 
- Current Memory Usage: 247.312 Meg
+ Current Memory Usage: 247.316 Meg
 
  Total Signals          : 30
  Total Nets             : 30
@@ -18,8 +18,8 @@ Total Line Count : 210
  Total Blocks           : 5
  Total Primitive Blocks : 3
  Total Processes        : 23
- Total Traceable Variables  : 61
- Total Scalar Nets and Variables : 1037
+ Total Traceable Variables  : 62
+ Total Scalar Nets and Variables : 1045
 ntrace select -o on -n /uart_uart_sch_tb/transmit 
 ntrace select -o on -n /uart_uart_sch_tb/clock 
 ntrace select -o on -n /uart_uart_sch_tb/clear 
@@ -33,14 +33,3 @@ restart
 isimrun 5000 ns 
 Simulator is doing circuit initialization process.
 Finished circuit initialization process.
-restart
-isimrun 3500 ns 
-Simulator is doing circuit initialization process.
-Finished circuit initialization process.
-
- Total Simulation Time: 0.078125 sec
-
- Current Memory Usage: 257.864 Meg
-
-Tue Apr 24 17:11:05 2012
-

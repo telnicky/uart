@@ -1,0 +1,21 @@
+CS 3700 Final Project
+Travis Elnicky & Michael Scutt
+
+This project comprises the design and construction of a UART [Universal Asynchronous Receiver/Transmitter] device, to be implemented as two finite-state machines. The usual UART device will process the data in some way and transmit the modified data, but our design will simply receive and transmit the given data; thus externally the design will act as a wire passing a delayed signal [the delay lasting at least as long as the time required to send eight bits for an eight-bit protocol, for example].
+
+Our design is broken into two primary circuits, a receiver and a sender. The receiver receives input data given using a serial protocol and translates the data to a parallel register to be handed over to the sender. The sender will take the data through a parallel connection within a four-phase handshake protocol with the receiver. The sender then transmits the data using the same serial protocol. Our circuit is designed for a 9600 baud serial protocol input and will follow the same protocol in its output.
+
+Both the receiver and sender circuits implement a clock-dividing circuit consisting of two counters. One ten-bit counter produces an enable signal at roughly one-ninth of the 9600 baud. The most significant bit on a second four-bit counter is used to track the time required to receive one bit in a 9600 baud protocol [1/9600th of a second], hence the division by nine. The modulo-nine count signal is used in the receiver to sample the incoming bits somewhere near the center of the bit signal [by sampling on the fifth count].
+
+The receiver and sender circuits are traditional finite-state machines, comprising present-state sequential, next-state combinational, and output combinational logic blocks. In operation, the receiver remains in its idle state until a signal is sent. The active-low starting bit signals a transition to the first of the receiving states in the next-state logic. The receiver transitions through all eight data bits and the stop bit at the rate of the baud, storing the data bits in an 8-bit register on the fifth count of the modulo-nine count signal [thus sampling near the center of the bit signal]. The receiver transitions through these ten states and enters directly into the first state of the handshake. The receiver holds this state, sending a high request signal, and waits for an acknowledge signal from the sender.
+
+The sender recognizes the request signal and transitions from idle into its first state of the handshake [the sender will not enter this state unless in idle]. In this state the sender stores a copy of the data and sends an acknowledge signal to the receiver. To complete the handshake, the receiver lowers its request signal and waits for the sender to lower its acknowledge signal. Once the sender recognizes the lowered request signal it lowers its acknowledge signal, and the receiver is then allowed to transition to its idle state and is ready to receive new strings of data.
+
+The sender transitions out of the handshake and into a sequence of eleven transmission states, transitioning at the rate of the baud. In each of these states, the sender assigns the transmit signal in the following order [within corresponding states]:
+
+start bit
+seven data bits [least significant bit first]
+parity bit
+two stop bits
+
+The sender transitions directly from the second stop bit state to its idle state and is then ready to accept new data from the receiver.
